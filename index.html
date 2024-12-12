@@ -39,20 +39,20 @@
         section {
             padding: 2rem;
         }
-        .intro, .projects, .contact {
+        .intro, .projects, .contact, .publications {
             margin-bottom: 2rem;
         }
         .intro p {
             font-size: 1.1rem;
         }
-        .projects ul {
+        .projects ul, .publications ul {
             list-style: none;
             padding: 0;
         }
-        .projects ul li {
+        .projects ul li, .publications ul li {
             margin: 0.5rem 0;
         }
-        .projects ul li a {
+        .projects ul li a, .publications ul li a {
             color: #004080;
             text-decoration: none;
         }
@@ -61,6 +61,13 @@
             padding: 1rem;
             background-color: #333;
             color: white;
+        }
+        .profile-pic {
+            display: block;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            max-width: 150px;
+            height: auto;
         }
     </style>
 </head>
@@ -71,12 +78,14 @@
         <nav>
             <a href="#about">About Me</a>
             <a href="#projects">Projects</a>
+            <a href="#publications">Publications</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
 
     <section class="intro" id="about">
         <h2>About Me</h2>
+        <img src="profile.jpg" alt="Ayomide Akinsanya" class="profile-pic">
         <p>
             I am a fourth-year Ph.D. candidate specializing in Machine Learning for Security applications. 
             My research spans adversarial machine learning, federated learning, privacy-preserving techniques, 
@@ -95,11 +104,20 @@
         </ul>
     </section>
 
+    <section class="publications" id="publications">
+        <h2>Publications</h2>
+        <ul>
+            <li><a href="#">Timing Channels in Adaptive Neural Networks </a> - NDSS, 2024</li>
+            <li><a href="#">Title of Paper 2</a> - Conference/Journal Name, Year</li>
+            <li><a href="#">Title of Paper 3</a> - Conference/Journal Name, Year</li>
+        </ul>
+    </section>
+
     <section class="contact" id="contact">
         <h2>Contact</h2>
-        <p>Email: <a href="mailto:ayomide@example.com">ayomide@example.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/ayomideakinsanya" target="_blank">linkedin.com/in/ayomideakinsanya</a></p>
-        <p>GitHub: <a href="https://github.com/ayomideakinsanya" target="_blank">github.com/ayomideakinsanya</a></p>
+        <p>Email: <a href="mailto:akinsanyaayomide23@gmail.com">akinsanyaayomide23@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/ayomide-akinsanya-2b3221185" target="_blank">linkedin.com/in/ayomideakinsanya</a></p>
+        <p>GitHub: <a href="https://github.com/akinsanyaayomide" target="_blank">github.com/ayomideakinsanya</a></p>
     </section>
 
     <footer>
