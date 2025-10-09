@@ -3,125 +3,680 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ayomide Akinsanya - Personal Website</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Ayomide Akinsanya - Ph.D. Candidate | Machine Learning & AI Security</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --border-color: #e5e7eb;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-secondary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
         header {
-            background-color: #004080;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
             color: white;
-            padding: 1rem;
-            text-align: center;
+            padding: 2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
         }
-        header h1 {
-            margin: 0;
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .header-text h1 {
             font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
         }
-        header p {
-            margin: 0.5rem 0 0;
+
+        .header-text p {
             font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 400;
         }
+
         nav {
-            margin-top: 1rem;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
         }
+
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 0.5rem;
-            font-weight: bold;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
         }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .profile-section {
+            background: var(--bg-primary);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .profile-pic {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            border: 6px solid var(--primary-color);
+            box-shadow: var(--shadow);
+        }
+
         section {
-            padding: 2rem;
+            background: var(--bg-primary);
+            margin: 2rem 0;
+            padding: 3rem 0;
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
         }
-        .intro, .projects, .contact, .publications {
+
+        .section-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary-color);
             margin-bottom: 2rem;
+            text-align: center;
         }
-        .intro p {
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: center;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .education-grid, .experience-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .education-item, .experience-item {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 0.75rem;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .degree-title, .job-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .institution, .company {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .date, .duration {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            text-align: center;
+        }
+
+        .skill-category h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
             font-size: 1.1rem;
         }
-        .projects ul, .publications ul {
-            list-style: none;
-            padding: 0;
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
         }
-        .projects ul li, .publications ul li {
-            margin: 0.5rem 0;
-        }
-        .projects ul li a, .publications ul li a {
-            color: #004080;
-            text-decoration: none;
-        }
-        footer {
-            text-align: center;
-            padding: 1rem;
-            background-color: #333;
+
+        .skill-tag {
+            background: var(--primary-color);
             color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.85rem;
+            font-weight: 500;
         }
-        .profile-pic {
-            display: block;
-            margin: 0 auto 1rem;
-            border-radius: 50%;
-            max-width: 150px;
-            height: auto;
+
+        .publications-list, .projects-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .publication-item, .project-item {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-radius: 0.75rem;
+            border-left: 4px solid var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+
+        .publication-item:hover, .project-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .publication-title, .project-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-venue, .project-tech {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-links {
+            margin-top: 1rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .publication-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .publication-link:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .publication-link i {
+            font-size: 1rem;
+        }
+
+        .news-item {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 0.75rem;
+            border-left: 4px solid #10b981;
+        }
+
+        .news-date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-secondary);
+            border-radius: 0.75rem;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-4px);
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer {
+            background: var(--text-primary);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-text h1 {
+                font-size: 2rem;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .profile-pic {
+                width: 150px;
+                height: 150px;
+            }
+
+            .section-content {
+                padding: 0 1rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Ayomide Akinsanya</h1>
-        <p>Ph.D. Candidate | Machine Learning & Security | Federated Learning</p>
-        <nav>
-            <a href="#about">About Me</a>
-            <a href="#projects">Projects</a>
-            <a href="#publications">Publications</a>
-            <a href="#contact">Contact</a>
-        </nav>
+        <div class="container">
+            <div class="header-content">
+                <div class="header-text">
+                    <h1>Ayomide Akinsanya</h1>
+                    <p>Ph.D. Candidate | Machine Learning & AI Security | Federated Learning</p>
+                </div>
+                <nav>
+                    <a href="#about">About</a>
+                    <a href="#education">Education</a>
+                    <a href="#research">Research</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#publications">Publications</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#news">News</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+            </div>
+        </div>
     </header>
 
-    <section class="intro" id="about">
-        <h2>About Me</h2>
-        <img src="profile.jpg" alt="Ayomide Akinsanya" class="profile-pic">
-        <p>
-            I am a fourth-year Ph.D. candidate specializing in Machine Learning for Security applications. 
-            My research spans adversarial machine learning, federated learning, privacy-preserving techniques, 
-            and graph representation learning. With experience at LinkedIn, Nomba, and academic contributions 
-            to top security conferences like NDSS, I aim to create secure and innovative AI systems.
-        </p>
+    <div class="profile-section">
+        <div class="container">
+            <img src="profile.jpeg" alt="Ayomide Akinsanya" class="profile-pic">
+            <div class="about-text">
+                <p>
+                    I am a fifth-year Computer Science Ph.D. candidate specializing in the security and privacy of machine learning and AI systems.
+                    My research spans adversarial machine learning, federated learning, privacy-preserving techniques, and graph representation learning.
+                    I have gained hands-on industry experience through research internships at Microsoft, LinkedIn, and Nomba, where I worked on applying AI to security and trust & safety challenges.
+                    I hold a Master's degree in Computer Science from the Stevens Institute of Technology, where I built a strong foundation in machine learning, deep learning, natural language processing, computer vision, and privacy-enhancing technologies.
+                    Driven by a passion for advancing AI security and privacy, I aim to bridge cutting-edge research with real-world impact.
+                    My work has been published in leading security venues such as NDSS 2024 and DeCaF (Colocated with MICCAI 2025).
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <section id="education">
+        <div class="container">
+            <div class="section-content">
+                <h2>Education</h2>
+                <div class="education-grid">
+                    <div class="education-item">
+                        <div class="degree-title">Ph.D. in Computer Science</div>
+                        <div class="institution">Stevens Institute of Technology, Hoboken, NJ, USA</div>
+                        <div class="date">Expected May 2026</div>
+                        <div class="description">
+                            Specializing in security and privacy of machine learning and AI systems, with a special focus on adversarial machine learning,
+                            federated learning, privacy-preserving techniques, and graph representation learning.
+                        </div>
+                    </div>
+                    <div class="education-item">
+                        <div class="degree-title">M.Sc. Computer Science</div>
+                        <div class="institution">Stevens Institute of Technology, Hoboken, NJ, USA</div>
+                        <div class="date">May 2023</div>
+                        <div class="description">
+                            Advanced studies in computer science with course work in machine learning, deep learning, natural language processing, computer vision, privacy-preserving techniques such as differential privacy, federated learning, secure computation, homomorphic encryption etc.
+                        </div>
+                    </div>
+                    <div class="education-item">
+                        <div class="degree-title">B.Sc. Electronic and Electrical Engineering</div>
+                        <div class="institution">Obafemi Awolowo University, Ile-Ife, Osun State, Nigeria</div>
+                        <div class="date">December 2019</div>
+                        <div class="description">
+                            Comprehensive foundation in engineering principles with focus on electronic systems and electrical engineering.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="projects" id="projects">
-        <h2>Projects</h2>
-        <ul>
-            <li><a href="#">Adaptive Neural Networks in Federated Learning</a></li>
-            <li><a href="#">GraphSAGE for Fake Account Detection</a></li>
-            <li><a href="#">Privacy-Preserving Techniques in AI</a></li>
-            <li><a href="#">Optimizing DP-SGD for Secure Models</a></li>
-        </ul>
+    <section id="research">
+        <div class="container">
+            <div class="section-content">
+                <h2>Research Interests</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Machine Learning and AI Security</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Adversarial ML</span>
+                            <span class="skill-tag">Secure ML</span>
+                            <span class="skill-tag">AI Safety</span>
+                            <span class="skill-tag">Responsible AI</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Distributed Systems</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Federated Learning</span>
+                            <span class="skill-tag">Decentralized Machine Learning</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Graph Learning</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Graph Neural Networks</span>
+                            <span class="skill-tag">GraphSAGE</span>
+                            <span class="skill-tag">Graph Attention Networks</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Privacy PreservingTechnologies</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Differential Privacy</span>
+                            <span class="skill-tag">DP-SGD</span>
+                            <span class="skill-tag">Secure Computation</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Machine learning for Security Applications</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Abuse Prevention</span>
+                            <span class="skill-tag">Anomaly Detection</span>
+                            <span class="skill-tag">Fraud Detection</span>
+                            <span class="skill-tag">Threat Intelligence</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="publications" id="publications">
-        <h2>Publications</h2>
-        <ul>
-            <li><a href="#">Timing Channels in Adaptive Neural Networks </a> - NDSS, 2024</li>
-            <li><a href="#">Title of Paper 2</a> - Conference/Journal Name, Year</li>
-            <li><a href="#">Title of Paper 3</a> - Conference/Journal Name, Year</li>
-        </ul>
+    <section id="experience">
+        <div class="container">
+            <div class="section-content">
+                <h2>Professional Experience</h2>
+                <div class="experience-grid">
+                    <div class="experience-item">
+                        <div class="job-title">PhD Research Assistant</div>
+                        <div class="company">Stevens Institute of Technology</div>
+                        <div class="duration">August 2021 - Present</div>
+                        <div class="description">
+                            Conducting research on security and privacy of machine learning systems under the supervision of Dr. Tegan Brennan.
+                            Focus areas include adversarial machine learning, federated learning and privacy-preserving techniques.
+                            Published research in top-tier security conferences such as NDSS, DeCaF.
+                        </div>
+                    </div>
+                    <div class="experience-item">
+                        <div class="job-title">Data Scientist Intern</div>
+                        <div class="company">Microsoft, Cambridge Massachusetts</div>
+                        <div class="duration">Summer 2025</div>
+                        <div class="description">
+                            Worked with the Intelligence Graph Research Team.
+                            Conducted research on developing novel natural language processing techniques for anomaly detection.
+                        </div>
+                    </div>
+                    <div class="experience-item">
+                        <div class="job-title">Applied Research Intern</div>
+                        <div class="company">LinkedIn, Sunnyvale California</div>
+                        <div class="duration">Summer 2024</div>
+                        <div class="description">
+                            Worked with the Anti-Abuse AI Team on security and trust & safety systems.
+                            Conducted research on machine learning applications for security and trust & safety systems.
+                            Trained a graph neural network (GraphSAGE) to detect fake accounts on the LinkedIn platform.
+                        </div>
+                    </div>
+                    <div class="experience-item">
+                        <div class="job-title">Machine Learning Engineer</div>
+                        <div class="company">Nomba</div>
+                        <div class="duration">September 2022 - May 2023</div>
+                        <div class="description">
+                            Trained and deployed a face verification system, for verifying the identity of newly onboarded merchants.
+                            Developed a real-time fraud detection system using machine learning.
+                        </div>
+                    </div>
+                    <div class="experience-item">
+                        <div class="job-title">Technical Support Engineer</div>
+                        <div class="company">Nomba</div>
+                        <div class="duration">January 2021 - August 2021</div>
+                        <div class="description">
+                            Worked with the engineering team in the deployment of software solutions to Google Cloud Platform.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="contact" id="contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:akinsanyaayomide23@gmail.com">akinsanyaayomide23@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/ayomide-akinsanya-2b3221185" target="_blank">linkedin.com/in/ayomideakinsanya</a></p>
-        <p>GitHub: <a href="https://github.com/akinsanyaayomide" target="_blank">github.com/ayomideakinsanya</a></p>
+    <section id="publications">
+        <div class="container">
+            <div class="section-content">
+                <h2>Publications</h2>
+                <ul class="publications-list">
+                    <li class="publication-item">
+                        <div class="publication-title">Timing Channels in Adaptive Neural Networks</div>
+                        <div class="publication-venue">Network and Distributed System Security (NDSS) Symposium, 2024</div>
+                        <div class="description">
+                            Research on timing-based side-channel attacks in adaptive neural networks.
+                        </div>
+                        <div class="publication-links">
+                            <a href="https://www.ndss-symposium.org/ndss-paper/timing-channels-in-adaptive-neural-networks/" class="publication-link" target="_blank">
+                                <i class="fas fa-file-pdf"></i> Paper
+                            </a>
+                            <a href="https://github.com/akinsanyaayomide/ADNNTimeLeaks.git" class="publication-link" target="_blank">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </li>
+                    <li class="publication-item">
+                        <div class="publication-title">FedSlowdown: Efficiency Attacks Against Federated Learning of Adaptive Neural Networks</div>
+                        <div class="publication-venue">International Conference on Medical Image Computing and Computer-Assisted Intervention (MICCAI), 2025</div>
+                        <div class="description">
+                            Research on efficiency attacks targeting federated learning systems utilizing adaptive neural networks.
+                        </div>
+                        <div class="publication-links">
+                            <a href="https://link.springer.com/chapter/10.1007/978-3-032-05663-4_15" class="publication-link" target="_blank">
+                                <i class="fas fa-file-pdf"></i> Paper
+                            </a>
+                            <a href="https://github.com/akinsanyaayomide/FedSlowdownDeCaF" class="publication-link" target="_blank">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <div class="section-content">
+                <h2>Research Projects</h2>
+                <ul class="projects-list">
+                    <li class="project-item">
+                        <div class="project-title">Timing Channels in Adaptive Neural Networks</div>
+                        <div class="project-tech">Libraries: PyTorch, Python</div>
+                        <div class="description">
+                            Research work on Timing Channels in Adaptive Neural Networks.
+                        </div>
+                    </li>
+                    <li class="project-item">
+                        <div class="project-title">FedSlowdown: Efficiency Attacks Against Federated Learning of Adaptive Neural Networks</div>
+                        <div class="project-tech">Technologies: PyTorch, Flower Federated Learning Framework</div>
+                        <div class="description">
+                            Research work on efficiency attacks targeting federated learning systems utilizing adaptive neural networks.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="news">
+        <div class="container">
+            <div class="section-content">
+                <h2>Latest News & Updates</h2>
+                 <div class="news-item">
+                    <div class="news-date">September 2025</div>
+                    <div>Paper accepted at DeCaF, MICCAI 2025: "FedSlowdown: Efficiency Attacks Against Federated Learning of Adaptive Neural Networks"</div>
+                 </div>
+                <div class="news-item">
+                    <div class="news-date">August 2025</div>
+                    <div>Completed internship at Microsoft as a Data Scientist Intern with the Intelligence Graph Research Team</div>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">May 2025</div>
+                    <div>Started internship at Microsoft as a Data Scientist Intern with the Intelligence Graph Research Team</div>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">August 2024</div>
+                    <div>Completed research internship at LinkedIn with the Anti-Abuse AI Team</div>
+                </div>
+                 <div class="news-item">
+                    <div class="news-date">May 2024</div>
+                    <div>Started research internship at LinkedIn with the Anti-Abuse AI Team</div>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">February 2024</div>
+                    <div>Paper accepted at NDSS 2024: "Timing Channels in Adaptive Neural Networks"</div>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">May 2023</div>
+                    <div>Successfully completed M.Sc. in Computer Science at the Stevens Institute of Technology, Hoboken, NJ, USA</div>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">May 2023</div>
+                    <div>Completed machine learning work at Nomba Data and ML team</div>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">September 2022</div>
+                    <div>Started machine learning work at Nomba Data and ML team</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="section-content">
+                <h2>Contact</h2>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <h4>Email</h4>
+                        <a href="mailto:akinsanyaayomide23@gmail.com">akinsanyaayomide23@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <h4>LinkedIn</h4>
+                        <a href="https://www.linkedin.com/in/ayomide-akinsanya-2b3221185" target="_blank">linkedin.com/in/ayomide-akinsanya</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <h4>GitHub</h4>
+                        <a href="https://github.com/akinsanyaayomide" target="_blank">github.com/akinsanyaayomide</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 Ayomide Akinsanya. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2025 Ayomide Akinsanya. All rights reserved.</p>
+        </div>
     </footer>
 </body>
 </html>
